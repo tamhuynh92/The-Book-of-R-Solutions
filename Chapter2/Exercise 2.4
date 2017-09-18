@@ -17,6 +17,11 @@ identical to using sort on (e) with decreasing=TRUE.
 g. Create a vector from (c) that repeats the third element of (c) three times, 
 the sixth element four times, and the last element once.
 
+h. Create a new vector as a copy of (e) by assigning (e) as is to a
+newly named object. Using this new copy of (e), overwrite the
+first, the fifth to the seventh (inclusive), and the last element with
+the values 99 to 95 (inclusive), respectively
+
 Solution:
 
 a. 
@@ -59,3 +64,16 @@ g.
 
     > rep(questionC[c(3,6,4)], c(3,4,1))
     [1]  5.25  5.25  5.25 -5.10 -5.10 -5.10 -5.10  6.00
+h. 
+    from e 
+    > a <- sort(a, decreasing = FALSE)
+    > a
+     [1] -33.000000 -33.000000  -5.100000  -5.100000   2.000000   2.000000
+     [7]   2.166667   3.000000   3.750000   4.500000   5.250000   6.000000
+    
+    > h <- a
+    > h[c(1,5:7,length(h))] <- c(99:95)
+    > h
+         [1]  99.00 -33.00  -5.10  -5.10  98.00  97.00  96.00   3.00   3.75
+        [10]   4.50   5.25  95.00
+    
