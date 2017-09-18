@@ -21,11 +21,12 @@ confirm that ![fifth equation](http://latex.codecogs.com/gif.latex?A%5E%7B-1%7D%
 Solution: 
 
 a.
-> A <- matrix(c(1,2,2,4,7,6), nrow = 3, ncol = 2, byrow = TRUE)
+A <- matrix(c(1,2,2,4,7,6), nrow = 3, ncol = 2, byrow = TRUE)
 
-> B <- matrix(seq(10,60, by=10), nrow = 3, ncol = 2, byrow = TRUE)
+B <- matrix(seq(10,60, by=10), nrow = 3, ncol = 2, byrow = TRUE)
 
-> (2/7)*(A - B)
+(2/7)*(A - B)
+
 
           [,1]        [,2]
 
@@ -34,3 +35,39 @@ a.
 [2,]     -8.000000 -10.285714
 
 [3,]    -12.285714 -15.428571
+
+b. 
+
+> A <- matrix(c(1,2,7), nrow = 3, ncol = 1)
+
+> B <- matrix(c(3,4,8), nrow = 3, ncol = 1)
+
+> A %*% B --> Does not work
+
+> t(A) %*% B --> 67
+
+> t(B) %*% (A %*% t(A))
+
+     [,1] [,2] [,3]
+     
+[1,]   67  134  469
+
+> (A %*% t(A)) %*% t(B) --> does not work
+
+> I <- diag(3)
+
+> solve(B %*% t(B) + A %*% t(A) - 100 * I)
+
+c. 
+> A <- diag(c(2,3,5,-1))
+
+> I <- diag(x=4)
+
+> dim(solve(A) %*% A - I)
+
+[1] 4 4
+
+
+
+
+
