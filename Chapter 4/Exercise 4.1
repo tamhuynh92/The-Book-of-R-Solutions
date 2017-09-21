@@ -1,0 +1,151 @@
+a. Store the following vector of 15 values as an object in your workspace: c(6,9,7,3,6,7,9,6,3,6,6,7,1,9,1). Identify the following elements:
+i. Those equal to 6
+ii. Those greater than or equal to 6
+iii. Those less than 6 + 2
+iv. Those not equal to 6
+
+b. Create a new vector from the one used in (a) by deleting its first three elements. With this new vector, fill a 2 × 2 × 3 array. Examine the array for the following entries:
+i. Those less than or equal to 6 divided by 2, plus 4
+ii. Those less than or equal to 6 divided by 2, plus 4, after increasing every element in the array by 2
+
+c. Confirm the specific locations of elements equal to 0 in the 10 × 10 identity matrix I10 (see Section 3.3).
+
+d. Check whether any of the values of the logical arrays created in (b) are TRUE. If they are, check whether they are all TRUE.
+
+e. By extracting the diagonal elements of the logical matrix created in (c), use any to confirm there are no TRUE entries.
+
+Solution:
+
+a.
+> mynumber <- c(6,9,7,3,6,7,9,6,3,6,6,7,1,9,1)
+> mynumber.matrix <- matrix(mynumber, 3,5)
+> mynumber.matrix
+     [,1] [,2] [,3] [,4] [,5]
+[1,]    6    3    9    6    1
+[2,]    9    6    6    6    9
+[3,]    7    7    3    7    1
+> mynumber.matrix == 6
+      [,1]  [,2]  [,3]  [,4]  [,5]
+[1,]  TRUE FALSE FALSE  TRUE FALSE
+[2,] FALSE  TRUE  TRUE  TRUE FALSE
+[3,] FALSE FALSE FALSE FALSE FALSE
+> mynumber.matrix >= 6
+     [,1]  [,2]  [,3] [,4]  [,5]
+[1,] TRUE FALSE  TRUE TRUE FALSE
+[2,] TRUE  TRUE  TRUE TRUE  TRUE
+[3,] TRUE  TRUE FALSE TRUE FALSE
+> mynumber.matrix <= (6+2)
+      [,1] [,2]  [,3] [,4]  [,5]
+[1,]  TRUE TRUE FALSE TRUE  TRUE
+[2,] FALSE TRUE  TRUE TRUE FALSE
+[3,]  TRUE TRUE  TRUE TRUE  TRUE
+> mynumber.matrix != 6
+      [,1]  [,2]  [,3]  [,4] [,5]
+[1,] FALSE  TRUE  TRUE FALSE TRUE
+[2,]  TRUE FALSE FALSE FALSE TRUE
+[3,]  TRUE  TRUE  TRUE  TRUE TRUE
+
+b.
+> myNewNumber <- mynumber[-c(1:3)]
+> myNewnumber.matrix <- array(myNewNumber, c(2,2,3))
+> myNewnumber.matrix 
+, , 1
+
+     [,1] [,2]
+[1,]    3    7
+[2,]    6    9
+
+, , 2
+
+     [,1] [,2]
+[1,]    6    6
+[2,]    3    6
+
+, , 3
+
+     [,1] [,2]
+[1,]    7    9
+[2,]    1    1
+
+> myNewnumber.matrix <= ((6/2)+4)
+, , 1
+
+     [,1]  [,2]
+[1,] TRUE  TRUE
+[2,] TRUE FALSE
+
+, , 2
+
+     [,1] [,2]
+[1,] TRUE TRUE
+[2,] TRUE TRUE
+
+, , 3
+
+     [,1]  [,2]
+[1,] TRUE FALSE
+[2,] TRUE  TRUE
+
+> (myNewnumber.matrix+2) <= ((6/2)+4)
+, , 1
+
+      [,1]  [,2]
+[1,]  TRUE FALSE
+[2,] FALSE FALSE
+
+, , 2
+
+      [,1]  [,2]
+[1,] FALSE FALSE
+[2,]  TRUE FALSE
+
+, , 3
+
+      [,1]  [,2]
+[1,] FALSE FALSE
+[2,]  TRUE  TRUE
+
+c.
+> Identity.matrix <- diag(10)
+> Identity.matrix
+      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+ [1,]    1    0    0    0    0    0    0    0    0     0
+ [2,]    0    1    0    0    0    0    0    0    0     0
+ [3,]    0    0    1    0    0    0    0    0    0     0
+ [4,]    0    0    0    1    0    0    0    0    0     0
+ [5,]    0    0    0    0    1    0    0    0    0     0
+ [6,]    0    0    0    0    0    1    0    0    0     0
+ [7,]    0    0    0    0    0    0    1    0    0     0
+ [8,]    0    0    0    0    0    0    0    1    0     0
+ [9,]    0    0    0    0    0    0    0    0    1     0
+[10,]    0    0    0    0    0    0    0    0    0     1
+> Identity.matrix == 0
+       [,1]  [,2]  [,3]  [,4]  [,5]  [,6]  [,7]  [,8]  [,9] [,10]
+ [1,] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+ [2,]  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+ [3,]  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+ [4,]  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+ [5,]  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE
+ [6,]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE
+ [7,]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE
+ [8,]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE
+ [9,]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE
+[10,]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE
+
+d. 
+> any(myNewnumber.matrix <= ((6/2)+4)) == TRUE
+[1] TRUE
+> all(myNewnumber.matrix <= ((6/2)+4)) == TRUE
+[1] FALSE
+
+> any((myNewnumber.matrix+2) <= ((6/2)+4)) == TRUE
+[1] TRUE
+> all((myNewnumber.matrix+2) <= ((6/2)+4)) == TRUE
+[1] FALSE
+
+e.
+
+e.
+> diagonal.value <- diag(Identity.matrix == 0)
+> any(diagonal.value) == FALSE
+[1] TRUE
