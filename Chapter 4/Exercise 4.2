@@ -15,23 +15,34 @@ a.
 > foo <- c(7,1,7,10,5,9,10,3,10,8)
 > (foo > 5) | (foo == 2)
  [1]  TRUE FALSE  TRUE  TRUE FALSE  TRUE  TRUE FALSE  TRUE  TRUE
-
+> which((foo > 5) | (foo == 2))
+[1]  1  3  4  6  7  9 10        #elements 1,3,4,6,7,9,10 
 
 b. 
 > bar <- c(8,8,4,4,5,1,5,6,6,8)
 > (bar <=6 ) & (bar != 4)
  [1] FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE
+> which((bar <=6 ) & (bar != 4))
+[1] 5 6 7 8 9 .    #elements 5,6,7,8,9
 
 c. 
 > ((foo > 5) | (foo == 2)) & ((bar <=6 ) & (bar != 4))
  [1] FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE  TRUE FALSE
- 
+ > which(((foo > 5) | (foo == 2)) & ((bar <=6 ) & (bar != 4)))
+[1] 6 7 9 #elements 6,7,9
+
 d. 
 > baz <- (foo + bar)
 > baz
  [1] 15  9 11 14 10 10 15  9 16 16
 > (baz >= 14 & baz !=15)
  [1] FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE  TRUE
+> which((baz >= 14 & baz !=15))
+[1]  4  9 10  #elements 4,9,10
+
 > (baz/foo > 4) | (baz/foo <=2)
  [1] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE
- 
+> which((baz/foo > 4) | (baz/foo <=2))
+[1]  2  3  4  5  6  7  9 10 
+
+
