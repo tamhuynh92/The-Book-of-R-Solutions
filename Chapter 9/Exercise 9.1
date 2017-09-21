@@ -1,0 +1,50 @@
+a. Identify the first 20 items contained in the built-in and automatically loaded methods package. How many items are there in
+total?
+
+b. Determine the environment that owns each of the following
+functions:
+i. read.table
+ii. data
+iii. matrix
+iv. jpeg
+
+c. Use ls and a test for character string equality to confirm the function smoothScatter is part of the graphics package
+
+Solution:
+a.
+> ls("package:methods")
+  [1] "addNextMethod"                  
+  [2] "allGenerics"                    
+  [3] "allNames"                       
+  [4] "Arith"                          
+  [5] "as"                             
+  [6] "as<-"                           
+  [7] "asMethodDefinition"             
+  [8] "assignClassDef"                 
+  [9] "assignMethodsMetaData"          
+ [10] "balanceMethodsList"             
+ [11] "body<-"                         
+ [12] "cacheGenericsMetaData"          
+ [13] "cacheMetaData"                  
+ [14] "cacheMethod"                    
+ [15] "callGeneric"                    
+ [16] "callNextMethod"                 
+ [17] "canCoerce"                      
+ [18] "cbind2"                         
+ [19] "checkAtAssignment"              
+ [20] "checkSlotAssignment"  
+ 
+ There is 218 items.
+ 
+ b.
+ > environment(read.table)
+<environment: namespace:utils>
+> environment(data)
+<environment: namespace:utils>
+> environment(matrix)
+<environment: namespace:base>
+> environment(jpeg)
+<environment: namespace:grDevices>
+
+c.
+ls("package:graphics")
