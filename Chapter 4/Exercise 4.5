@@ -1,0 +1,75 @@
+The New Zealand government consists of the political parties National, Labour, Greens, and Maori, with several smaller parties labeled as Other. Suppose you asked 20 New Zealanders which of these they identified most with and obtained the following data:
+• There were 12 males and 8 females; the individuals numbered 1, 5–7, 12, and 14–16 were females.
+• The individuals numbered 1, 4, 12, 15, 16, and 19 identified with Labour; no one identified with Maori; the individuals numbered 6, 9, and 11 identified with Greens; 10 and 20 identified with Other; and the rest identified with National.
+
+a. Use your knowledge of vectors (for example, subsetting and overwriting) to create two character vectors: sex with entries "M" (male) and "F" (female) and party with entries "National", "Labour", "Greens", "Maori", and "Other". Make sure the entries are placed in the correct positions as outlined earlier.
+b. Create two different factor vectors based on sex and party. Does it make any sense to use ordered=TRUE in either case? How has R appeared to arrange the levels?
+c. Use factor subsetting to do the following:
+  i. Return the factor vector of chosen parties for only the male participants.
+  ii. Return the factor vector of genders for those who chose National.
+d. Another six people joined the survey, with the results c("National","Maori","Maori","Labour","Greens","Labour") for the preferred party and c("M","M","F","F","F","M") as their gender. Combine these results with the original factors from (b).
+
+
+Suppose you also asked all individuals to state how confident they were that Labour will win more seats in Parliament than National in the next election and to attach a subjective percentage to that confidence. The following 26 results were obtained: 93, 55, 29, 100, 52, 84, 56, 0, 33, 52, 35, 53, 55, 46, 40, 40, 56, 45, 64, 31, 10, 29, 40, 95, 18, 61.
+e. Create a factor with levels of confidence as follows: Low for percentages [0,30]; Moderate for percentages (30,70]; and High for percentages (70,100]. 
+f. From (e), extract the levels corresponding to those individuals who originally said they identifiy
+
+
+a+b
+
+> order <- c(1:20)
+
+> sex.char <- c("F","M","M","M","F","F","F","M","M","M","M","F","M","F","F","F","M","M","M","M")
+> sex.char.fac <- factor(sex.char)
+
+> party.fac <- factor(c("National", "Labour", "Greens", "Maori", "Other"))
+> political.party.char <- c("Labour", "National", "National", "Labour", "National", "Greens", "National", "National", "Greens", "Other", "Greens", "Labour", "National", "National",  "Labour", "Labour", "National", "National" ,"Labour", "Other" )
+> political.party.char.fac <- factor(political.party.char)
+> political.party.char.fac 
+ [1] Labour   National National Labour   National Greens   National
+ [8] National Greens   Other    Greens   Labour   National National
+[15] Labour   Labour   National National Labour   Other   
+Levels: Greens Labour National Other
+
+it doesnt make any sense to use ordered=TRUE in either case.
+
+c.
+> political.party.char.fac[sex.char.fac == "M"]
+ [1] National National Labour   National Greens   Other    Greens  
+ [8] National National National Labour   Other   
+Levels: Greens Labour National Other
+
+> sex.char.fac[political.party.char.fac == "National"]
+[1] M M F F M M F M M
+Levels: F M
+
+d. 
+> news.values.sex <- factor(c("M","M","F","F","F","M"))
+> sex.char.fac.new <- levels(sex.char.fac)[c(sex.char.fac,news.values.sex)]
+> sex.char.fac.new
+ [1] "F" "M" "M" "M" "F" "F" "F" "M" "M" "M" "M" "F" "M" "F" "F" "F"
+[17] "M" "M" "M" "M" "M" "M" "F" "F" "F" "M"
+
+> news.values.party <- factor(c("National", "Maori", "Labour", "Greens", "Labour"))
+> political.party.char.fac <- levels(party.fac)[c(political.party.char.fac,news.values.party)]
+> political.party.char.fac 
+ [1] "Labour"   "Maori"    "Maori"    "Labour"   "Maori"   
+ [6] "Greens"   "Maori"    "Maori"    "Greens"   "National"
+[11] "Greens"   "Labour"   "Maori"    "Maori"    "Labour"  
+[16] "Labour"   "Maori"    "Maori"    "Labour"   "National"
+[21] "National" "Maori"    "Labour"   "Greens"   "Labour"  
+
+e.
+> list.number <-  c(93, 55, 29, 100, 52, 84, 56, 0, 33, 52, 35, 53, 55, 46, 40, 40, 56, 45, 64, 31, 10, 29, 40, 95, 18, 61)
+> length(list.number)
+[1] 26
+> br <- c(0,30,70,100)
+> lab <- c("Low", "Moderate", "High")
+> cut(x=list.number, breaks = br, right=T, include.lowest = T, labels = lab)
+ [1] High     Moderate Low      High     Moderate High     Moderate
+ [8] Low      Moderate Moderate Moderate Moderate Moderate Moderate
+[15] Moderate Moderate Moderate Moderate Moderate Moderate Low     
+[22] Low      Moderate High     Low      Moderate
+Levels: Low Moderate High
+
+
