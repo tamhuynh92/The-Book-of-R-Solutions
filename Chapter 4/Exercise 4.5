@@ -17,7 +17,6 @@ f. From (e), extract the levels corresponding to those individuals who originall
 
 a+b
 
-> order <- c(1:20)
 
 > sex.char <- c("F","M","M","M","F","F","F","M","M","M","M","F","M","F","F","F","M","M","M","M")
 > sex.char.fac <- factor(sex.char)
@@ -50,14 +49,15 @@ d.
  [1] "F" "M" "M" "M" "F" "F" "F" "M" "M" "M" "M" "F" "M" "F" "F" "F"
 [17] "M" "M" "M" "M" "M" "M" "F" "F" "F" "M"
 
-> news.values.party <- factor(c("National", "Maori", "Labour", "Greens", "Labour"))
+> news.values.party <- factor(c("National", "Maori", "Maori", "Labour", "Greens", "Labour"))
 > political.party.char.fac <- levels(party.fac)[c(political.party.char.fac,news.values.party)]
 > political.party.char.fac 
  [1] "Labour"   "Maori"    "Maori"    "Labour"   "Maori"   
  [6] "Greens"   "Maori"    "Maori"    "Greens"   "National"
 [11] "Greens"   "Labour"   "Maori"    "Maori"    "Labour"  
 [16] "Labour"   "Maori"    "Maori"    "Labour"   "National"
-[21] "National" "Maori"    "Labour"   "Greens"   "Labour"  
+[21] "National" "Maori"    "Maori"    "Labour"   "Greens"  
+[26] "Labour"  
 
 e.
 > list.number <-  c(93, 55, 29, 100, 52, 84, 56, 0, 33, 52, 35, 53, 55, 46, 40, 40, 56, 45, 64, 31, 10, 29, 40, 95, 18, 61)
@@ -65,11 +65,19 @@ e.
 [1] 26
 > br <- c(0,30,70,100)
 > lab <- c("Low", "Moderate", "High")
-> cut(x=list.number, breaks = br, right=T, include.lowest = T, labels = lab)
+> level.of.confidence <- cut(x=list.number, breaks = br, right=T, include.lowest = T, labels = lab)
  [1] High     Moderate Low      High     Moderate High     Moderate
  [8] Low      Moderate Moderate Moderate Moderate Moderate Moderate
 [15] Moderate Moderate Moderate Moderate Moderate Moderate Low     
 [22] Low      Moderate High     Low      Moderate
 Levels: Low Moderate High
 
+f. 
+> level.of.confidence[political.party.char.fac == "Labour"]
+[1] High     High     Moderate Moderate Moderate Moderate High    
+[8] Moderate
+Levels: Low Moderate High
 
+> level.of.confidence[political.party.char.fac == "National"]
+[1] Moderate Moderate Low     
+Levels: Low Moderate High
