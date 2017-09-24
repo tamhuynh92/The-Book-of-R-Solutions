@@ -1,0 +1,105 @@
+a. Identify the class of the following objects. For each object, also
+state whether the class is explicitly or implicitly defined.
+    i. foo <- array(data=1:36,dim=c(3,3,4))
+    ii. bar <- as.vector(foo)
+    iii. baz <- as.character(bar)
+    iv. qux <- as.factor(baz)
+    v. quux <- bar+c(-0.1,0.1)
+
+b. For each object defined in (a), find the sum of the result of calling is.numeric and is.integer on it separately. For example, is.numeric(foo)+is.integer(foo) would compute the sum for (i). Turn the collection of five results into a factor with levels 0, 1, and 2, identified by the results themselves. Compare this factor vector with the result of coercing it to a numeric vector.
+
+c. Turn the following:
+-----------------------------
+      [,1] [,2] [,3] [,4]
+[1,]    2   5     8   11
+[2,]    3   6     9   12
+[3,]    4   7     10  13
+-----------------------------
+into the following:
+----------------------------------------------------------------
+[1] "2" "5" "8" "11" "3" "6" "9" "12" "4" "7" "10" "13
+----------------------------------------------------------------
+
+d. Store the following matrix:
+
+34  0   1
+23  1   2
+33  1   1
+42  0   1
+41  0   2
+
+Then, do the following:
+    i. Coerce the matrix to a data frame.
+    ii. As a data frame, coerce the second column to be logicalvalued.
+    iii. As a data frame, coerce the third column to be factor-valued
+    
+ Solution:
+ a.
+ 
+ > foo <- array(data=1:36, dim=c(3,3,4))
+> class(foo)
+[1] "array"
+> bar <- as.vector(foo)
+> class(bar)
+[1] "integer"
+> baz <- as.character(bar)
+> class(baz)
+[1] "character"
+> qux <- as.factor(baz)
+> class(qux)
+[1] "factor"
+> quux <- bar + c(-0.1,0.1)
+> class(quux)
+[1] "numeric"
+
+b.
+> is.numeric(foo) + is.integer(foo)
+[1] 2
+> is.numeric(bar) + is.integer(bar)
+[1] 2
+> is.numeric(baz) + is.integer(baz)
+[1] 0
+> is.numeric(qux) + is.integer(qux)
+[1] 0
+> is.numeric(quux) + is.integer(quux)
+[1] 1
+
+> result <- is.numeric(foo) + is.integer(foo)
+> result <- c(result,is.numeric(bar) + is.integer(bar))
+> result <- c(result,is.numeric(baz) + is.integer(baz))
+> result <- c(result,is.numeric(qux) + is.integer(qux))
+> result <- c(result,is.numeric(quux) + is.integer(quux))
+> result
+
+> result.factor <- factor(result)
+> result.factor
+[1] 2 2 0 0 1
+Levels: 0 1 2
+[1] 2 2 0 0 1
+c.
+> as.character(c(mymatrix[1,], mymatrix[2,], mymatrix[3,]))
+ [1] "2"  "5"  "8"  "11" "3"  "6"  "9"  "12" "4"  "7"  "10" "13"
+d.
+> mtrx <- matrix(c(34,0,1,23,1,2,33,1,1,42,0,1,41,0,2), 5, 3, byrow = TRUE)
+> mtrx
+     [,1] [,2] [,3]
+[1,]   34    0    1
+[2,]   23    1    2
+[3,]   33    1    1
+[4,]   42    0    1
+[5,]   41    0    2
+> dataframe.mtrx <- as.data.frame(mtrx)
+> dataframe.mtrx
+  V1 V2 V3
+1 34  0  1
+2 23  1  2
+3 33  1  1
+4 42  0  1
+5 41  0  2
+> logical.mtrx <- as.logical(dataframe.mtrx[,2])
+> logical.mtrx
+[1] FALSE  TRUE  TRUE FALSE FALSE
+> factor.mtrx <- as.factor(dataframe.mtrx[,3])
+> factor.mtrx
+[1] 1 2 1 1 2
+Levels: 1 2
