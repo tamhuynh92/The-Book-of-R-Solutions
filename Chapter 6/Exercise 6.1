@@ -1,0 +1,57 @@
+a. Store the following vector:
+foo <- c(13563,-14156,-14319,16981,12921,11979,9568,8833,-12968, 8133)
+
+Then, do the following:
+  i. Output all elements of foo that, when raised to a power of 75, are NOT infinite.
+  ii. Return the elements of foo, excluding those that result in negative infinity when raised to a power of 75
+  
+b. Store the following 3 × 4 matrix as the object bar:
+--------------------------------------------------------------------------------
+77875.40      27551.45    23764.30    −36478.88
+−35466.25    −73333.85    36599.69    −70585.69
+−39803.81     55976.34    76694.82    47032.00
+--------------------------------------------------------------------------------
+
+Now, do the following:
+
+    i. Identify the coordinate-specific indexes of the entries of bar that are NaN when you raise bar to a power of 65 and divide by infinity.
+
+    ii. Return the values in bar that are NOT NaN when bar is raised to a power of 67 and infinity is added to the result. Confirm this is identical to identifying those values in bar that, when raised to a power of 67, are not equal to negative infinity.
+
+    iii. Identify those values in bar that are either negative infinity OR finite when you raise bar to a power of 67.
+    
+    
+Solution:
+a.
+> foo[which(is.finite(foo^75))]
+[1] 11979  9568  8833  8133
+
+> foo[-which(foo^75 == -Inf)]
+[1] 13563 16981 12921 11979  9568  8833  8133
+
+b.
+> bar <- matrix(c(77875.40, 27551.45, 23764.30, -36478.88, -35466.25, -73333.85, 36599.69, -70585.69, -39803.81, 55976.34, 76694.82, 47032), 3, 4, byrow = TRUE)
+> bar
+          [,1]      [,2]     [,3]      [,4]
+[1,]  77875.40  27551.45 23764.30 -36478.88
+[2,] -35466.25 -73333.85 36599.69 -70585.69
+[3,] -39803.81  55976.34 76694.82  47032.00
+> which(is.nan(bar^65/Inf) == TRUE, arr.ind = T)
+     row col
+[1,]   1   1
+[2,]   2   2
+[3,]   3   2
+[4,]   3   3
+[5,]   2   4
+
+> bar[which(is.nan(bar^67+Inf) == FALSE)]
+ [1]  77875.40 -35466.25 -39803.81  27551.45  55976.34  23764.30
+ [7]  36599.69  76694.82 -36478.88  47032.00
+ 
+ > bar[which((bar^67) != -Inf)]
+ [1]  77875.40 -35466.25 -39803.81  27551.45  55976.34  23764.30
+ [7]  36599.69  76694.82 -36478.88  47032.00
+ 
+ > bar[which(bar^67 == - Inf | is.finite(bar^67) == TRUE )]
+[1] -35466.25 -39803.81  27551.45 -73333.85  23764.30  36599.69
+[7] -36478.88 -70585.69
