@@ -1,0 +1,104 @@
+a. 
+
+Create and store this data frame as dframe in your R workspace:
+person    sex funny
+Stan      M   High
+Francine  F   Med
+Steve     M   Low
+Roger     M   High
+Hayley    F   Med
+Klaus     M   Med
+
+The variables person, sex, and funny should be identical in nature to the variables in the mydata object studied throughout Section 5.2. That is, person should be a character vector, sex should be a factor with levels F and M, and funny should be a factor with levels Low, Med, and High.
+
+b. Stan and Francine are 41 years old, Steve is 15, Hayley is 21, and Klaus is 60. Roger is extremely old—1,600 years. Append these data as a new numeric column variable in dframe called age.
+
+c. Use your knowledge of reordering the column variables based on column index positions to overwrite dframe, bringing it in line with mydata. That is, the first column should be person, the second column age, the third column sex, and the fourth column funny.
+
+d. Turn your attention to mydata as it was left after you included the age.mon variable in Section 5.2.2. Create a new version of mydata called mydata2 by deleting the age.mon column.
+
+e. Now, combine mydata2 with dframe, naming the resulting object mydataframe.
+
+f. Write a single line of code that will extract from mydataframe just the names and ages of any records where the individual is female and has a level of funniness equal to Med OR High.
+
+g. Use your knowledge of handling character strings in R to extract all records from mydataframe that correspond to people whose names start with S. Hint: Recall substr from Section 4.2.4 (note that substr can be applied to a vector of multiple character strings).
+
+Solution
+a. 
+
+>dframe <- data.frame(person=c("Stan", "Francine", "Steve", "Roger", "Hayley", "Klaus"), sex = factor(c("M","F","M","M","F","M")), funny = factor(c("High", "Med", "Low", "High", "Med", "Med")), stringsAsFactors = FALSE)
+> dframe
+    person sex funny
+1     Stan   M  High
+2 Francine   F   Med
+3    Steve   M   Low
+4    Roger   M  High
+5   Hayley   F   Med
+6    Klaus   M   Med
+> dframe$sex
+[1] M F M M F M
+Levels: F M
+> dframe$funny
+[1] High Med  Low  High Med  Med 
+Levels: High Low Med
+
+ b.
+ > age <- c(41,41,15,1600,21,60)
+> dframe <- cbind(dframe,age)
+> dframe
+    person sex funny  age
+1     Stan   M  High   41
+2 Francine   F   Med   41
+3    Steve   M   Low   15
+4    Roger   M  High 1600
+5   Hayley   F   Med   21
+6    Klaus   M   Med   60
+
+c.
+> dframe <- dframe[,c(1,4,2,3)]
+> dframe
+    person  age sex funny
+1     Stan   41   M  High
+2 Francine   41   F   Med
+3    Steve   15   M   Low
+4    Roger 1600   M  High
+5   Hayley   21   F   Med
+6    Klaus   60   M   Med
+
+d. 
+> mydata2 <- mydata[,1:4]
+> mydata2
+  person age sex funny
+1  Peter  42   M  High
+2   Lois  40   F  High
+3    Meg  17   F   Low
+4  Chris  14   M   Med
+5 Stewie   1   M  High
+6  Brian   7   M   Med
+
+e.
+> mydataframe <- rbind(dframe, mydata2)
+> mydataframe
+     person  age sex funny
+1      Stan   41   M  High
+2  Francine   41   F   Med
+3     Steve   15   M   Low
+4     Roger 1600   M  High
+5    Hayley   21   F   Med
+6     Klaus   60   M   Med
+7     Peter   42   M  High
+8      Lois   40   F  High
+9       Meg   17   F   Low
+10    Chris   14   M   Med
+11   Stewie    1   M  High
+12    Brian    7   M   Med
+
+f.
+> mydataframe[mydataframe$sex == "F" & (mydataframe$funny =="High" | mydataframe$funny =="Med"),]
+    person age sex funny
+2 Francine  41   F   Med
+5   Hayley  21   F   Med
+8     Lois  40   F  High
+
+g.
+mydataframe$person['S' == substr(mydataframe$person,1,1)]
