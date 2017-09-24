@@ -66,3 +66,60 @@ ii.
 [[4]]
 [1] LOW  MED  LOW  MED  MED  HIGH
 Levels: HIGH LOW MED
+
+> c <- cat("Windmills! ATTACK! \n\t-\\", foo[[3]], "/-")
+Windmills! ATTACK! 
+	-\ Don Quixote /-
+    
+ iii. 
+ > foo[[1]][foo[[1]]>1]
+[1] 1.052632 1.473684 1.894737 2.315789 2.736842 3.157895 3.578947
+[8] 4.000000
+
+iv.
+> which(foo[[4]] == "MED")
+[1] 2 4 5
+
+b.
+> newList <- list("facs" = foo[[4]], nums = c(3,2.1,3.3,4,1.5,4.9))
+> newList$oldlist <- foo[c(1,2,3)]
+> newList
+$facs
+[1] LOW  MED  LOW  MED  MED  HIGH
+Levels: HIGH LOW MED
+
+$nums
+[1] 3.0 2.1 3.3 4.0 1.5 4.9
+
+$oldlist
+$oldlist[[1]]
+ [1] -4.0000000 -3.5789474 -3.1578947 -2.7368421 -2.3157895
+ [6] -1.8947368 -1.4736842 -1.0526316 -0.6315789 -0.2105263
+[11]  0.2105263  0.6315789  1.0526316  1.4736842  1.8947368
+[16]  2.3157895  2.7368421  3.1578947  3.5789474  4.0000000
+
+$oldlist[[2]]
+      [,1]  [,2]  [,3]
+[1,] FALSE  TRUE  TRUE
+[2,]  TRUE FALSE FALSE
+[3,]  TRUE  TRUE FALSE
+
+$oldlist[[3]]
+[1] "Don"     "Quixote"
+
+i.
+> newList[[1]][newList[[2]] >= 3]
+[1] LOW  LOW  MED  HIGH
+Levels: HIGH LOW MED
+
+ii. 
+
+> flags <- rep(newList$oldlist[[2]][,3],2)
+> newList$flags <- flags
+
+iii.
+> newList$num[newList$flag == F]
+[1] 2.1 3.3 1.5 4.9
+
+iv.
+> newList$oldlist[[3]] <- "Don Quixote"
