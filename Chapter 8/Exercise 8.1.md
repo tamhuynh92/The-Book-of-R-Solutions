@@ -22,8 +22,10 @@ ii. Read Exercise8-1.txt back into your workspace; call the resulting object lis
 ***a***
 
 ```R
-> write.table(x=quakes[quakes$mag>=5,], file="/Users/tamhuynh/Desktop/R Programming/q5.txt", sep = "!", quote=FALSE, row.names = FALSE)
-> q5.dframe <- read.table(file="/Users/tamhuynh/Desktop/R Programming/q5.txt", header = TRUE, sep = "!", stringsAsFactors = FALSE)
+> write.table(x=quakes[quakes$mag>=5,], file="/Users/tamhuynh/Desktop/R Programming/q5.txt", 
+sep = "!", quote=FALSE, row.names = FALSE)
+> q5.dframe <- read.table(file="/Users/tamhuynh/Desktop/R Programming/q5.txt", header = TRUE,
+sep = "!", stringsAsFactors = FALSE)
 ```
 
 b.
