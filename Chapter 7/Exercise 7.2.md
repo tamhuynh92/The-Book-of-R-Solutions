@@ -30,3 +30,4 @@ Levels: Female Male
 > qplot(weight,height, color=ptype, shape = ptype)
 ```
 
+![Image](https://github.com/tamhuynh92/The-Book-of-R-Solutions/blob/master/Chapter%207/Exercise%207.2%20Graph.png?raw=true)
