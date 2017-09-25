@@ -5,7 +5,7 @@ a. As closely as you can, re-create the following plot:
 
 
 
-'python'
+```python
 > x<-  1
 > y<-  1
 > plot(x,y,type = "n", main = "", xlim=c(-3.25,3.25), ylim = c(6.75,13.25))
@@ -36,4 +36,4 @@ a. As closely as you can, re-create the following plot:
 > legend("bottomright", legend = c("Male", "Female"), pch = c(4,3), col = c("blue", "red"))
 
 
-'
+```
