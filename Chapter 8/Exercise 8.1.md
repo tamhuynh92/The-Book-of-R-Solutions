@@ -44,3 +44,4 @@ b.
 RStudioGD 
         2 
 ```
+![Image](https://github.com/tamhuynh92/The-Book-of-R-Solutions/blob/master/Chapter%208/EducationvsIncome.png?raw=true)
