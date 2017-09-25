@@ -11,9 +11,13 @@ b. Wich of the following squares negative 4 and adds 2 to the results?
     
     iv. -4^(2+2)
 
+
 c. Using R, how would you calculate the square root of half of the average of  the numbers 25.2, 15, 16.44, 15.3 and 18.6?
+
 d. Find log(e)(0.3)
+
 e. Compute the exponential transform of your answer to (d)
+
 f. Identify R's represenation of -.00000000423546322 when printing this number to the console.
 
 
