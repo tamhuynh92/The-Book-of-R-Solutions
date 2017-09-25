@@ -1,6 +1,7 @@
 
 a. As closely as you can, re-create the following plot:
-![Image 1](The-Book-of-R-Solutions/Chapter 7/Untitled.png)
+
+![Image 1](https://github.com/tamhuynh92/The-Book-of-R-Solutions/blob/master/Chapter%207/Untitled.png?raw=true)
 
 
 
