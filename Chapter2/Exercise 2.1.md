@@ -13,21 +13,33 @@ e. Compute the exponential transform of your answer to (d)
 f. Identify R's represenation of -.00000000423546322 when printing this number to the console.
 
 
-Solution:
+**Solution:**
 
-a.  > a <- 2.3
-    > ((6*a) + 42) / (3^(4.2-3.62))
-    [1] 29.50556
-
-b. i. (-4)^2 + 2 
-c.  > avg <- mean(25.2, 15, 16.44, 15.3, 18.6)
-    > sqrt(avg/2)
-    [1] 3.549648
+a. 
+```
+> a <- 2.3
+> ((6*a) + 42) / (3^(4.2-3.62))
+[1] 29.50556
+```
+b. 
+i. (-4)^2 + 2 
+c.  
+```
+> avg <- mean(25.2, 15, 16.44, 15.3, 18.6)
+> sqrt(avg/2)
+[1] 3.549648
+```
     
-d. > log(0.3, base = exp(1))
-   [1] -1.203973
+d. 
+```
+> log(0.3, base = exp(1))
+[1] -1.203973
+```
    
-e. > exp(log(0.3, base = exp(1)))
+e. 
+```
+> exp(log(0.3, base = exp(1)))
   [1] 0.3
+```
 
 f. -4.235463e-09
