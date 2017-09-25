@@ -29,5 +29,18 @@ sep = "!", stringsAsFactors = FALSE)
 ```
 
 b.
-```
+```R
 > install.packages("car")
+> library("car")
+> data('Duncan')
+> x <- Duncan$education
+> y <- Duncan$income
+> png(filename="/Users/tamhuynh/Desktop/R Programming/EducationvsIncome.png", width = 500, height = 500)
+> plot(x,y,type="n", main="Education vs. Income", xlab = "Education", ylab = "Income", xlim = c(0,100), ylim = c(0,100))
+> points(x[Duncan$prestige <=80], y[Duncan$prestige <=80], col = "black")
+> points(x[Duncan$prestige > 80], y[Duncan$prestige > 80], col = "blue", pch = 19)
+> legend("bottomright", legend = c("Prestige <= 80", "Prestige > 80"), pch = c(NA,19), col = c("black", "blue"))
+> dev.off()
+RStudioGD 
+        2 
+```
