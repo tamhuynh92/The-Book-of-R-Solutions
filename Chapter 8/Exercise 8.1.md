@@ -16,3 +16,16 @@ i. Write the list object directly to disk, calling it Exercise8-1.txt. Briefly i
 ii. Read Exercise8-1.txt back into your workspace; call the resulting object list.of.dataframes. Check that list.of.dataframes does indeed contain the three data frame objects.
     
 ***d. In Section 7.4.3, you created a ggplot2 graphic of 20 observations displayed as the bottom image of Figure 7-11 on page 144. Use ggsave to save a copy of this plot as a .tiff file.***
+
+
+***Solution***
+***a***
+
+```R
+> write.table(x=quakes[quakes$mag>=5,], file="/Users/tamhuynh/Desktop/R Programming/q5.txt", sep = "!", quote=FALSE, row.names = FALSE)
+> q5.dframe <- read.table(file="/Users/tamhuynh/Desktop/R Programming/q5.txt", header = TRUE, sep = "!", stringsAsFactors = FALSE)
+```
+
+b.
+```
+> install.packages("car")
