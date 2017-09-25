@@ -42,6 +42,7 @@ b. With the following data, create a plot of weight on the x-axis and height on 
 
 > text(x=0, y=10, labels = "SOMETHING \n PROFOUND", cex = 0.5)
 ```
+![Image2](https://github.com/tamhuynh92/The-Book-of-R-Solutions/blob/master/Chapter%207/Ex%207.2%20a.png?raw=true)
 
 **b**
 ```R
@@ -55,3 +56,4 @@ b. With the following data, create a plot of weight on the x-axis and height on 
 
 
 ```
+![Image3](https://github.com/tamhuynh92/The-Book-of-R-Solutions/blob/master/Chapter%207/Ex.%207.1%20Weight%20vs.%20Height.png?raw=true)
