@@ -5,7 +5,7 @@ a. As closely as you can, re-create the following plot:
 
 
 
-```python
+```R
 > x<-  1
 > y<-  1
 > plot(x,y,type = "n", main = "", xlim=c(-3.25,3.25), ylim = c(6.75,13.25))
