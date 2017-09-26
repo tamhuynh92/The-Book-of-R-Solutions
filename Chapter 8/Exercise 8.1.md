@@ -45,3 +45,15 @@ RStudioGD
         2 
 ```
 ![Image](https://github.com/tamhuynh92/The-Book-of-R-Solutions/blob/master/Chapter%208/EducationvsIncome.png?raw=true)
+
+c.
+```R
+> dput(lst, file="/Users/tamhuynh/Desktop/R Programming/Exercise8-1.txt")
+> newlst <- dget(file="/Users/tamhuynh/Desktop/R Programming/Exercise8-1.txt")
+> newlst
+```
+
+d.
+```R
+> ggsave(filename="/Users/tamhuynh/Desktop/R Programming/Figure 7.11.tiff")
+```
