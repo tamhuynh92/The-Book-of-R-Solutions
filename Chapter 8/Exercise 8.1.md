@@ -57,3 +57,4 @@ d.
 ```R
 > ggsave(filename="/Users/tamhuynh/Desktop/R Programming/Figure 7.11.tiff")
 ```
+![Image2](https://github.com/tamhuynh92/The-Book-of-R-Solutions/blob/master/Chapter%208/Figure%207.11.tiff)
