@@ -1,7 +1,7 @@
-***a***
+***a)***
 Write an explicit stacked set of if statements that does the same thing as the integer version of the switch function illustrated earlier. Test it with mynum <- 3 and mynum <- 0, as in the text.
 
-***b***
+***b)***
 Suppose you are tasked with computing the precise dosage amounts of a certain drug in a collection of hypothetical scientific experiments. These amounts depend upon some predetermined set of “dosage thresholds” (lowdose, meddose, and highdose), as well as a predetermined dose level factor vector named doselevel. Look at the following items (i–iv) to see the
 intended form of these objects. Then write a set of nested if statements that produce a new numeric vector called dosage, according to the following rules:
 
@@ -72,5 +72,5 @@ iv. Using the same lowdose, meddose, and highdose thresholds as (iii), as well a
 [1] 4.5 91.5 91.5 91.5 4.5 26.0 26.0
 ```
 
-***c***
+***c)***
 Assume the object mynum will only ever be a single integer between 0 and 9. Use ifelse and switch to produce a command that takes in mynum and returns a matching character string for all possible values 0, 1, ..., 9. Supplied with 3, for example, it should return "three"; supplied with 0, it should return "zero".
