@@ -64,12 +64,25 @@ mtrx
 }
 
 ```
-mymat <- matrix(as.character(1:16),4,4)
-test(mymat)
+```R
+> mymat <- matrix(as.character(1:16),4,4)
+> test(mymat)
+     [,1] [,2] [,3] [,4]
+[1,]    1    0    0    0
+[2,]    0    1    0    0
+[3,]    0    0    1    0
+[4,]    0    0    0    1
 
-mymat <- matrix(c("GREAT","exercises","right","here"),2,2, byrow=T)
-test(mymat)
+> mymat <- matrix(c("GREAT","exercises","right","here"),2,2, byrow=T)
+> test(mymat)
+     [,1]    [,2]       
+[1,] "HERE"  "exercises"
+[2,] "right" "here"     
 
-mymat <- matrix(c("DANDELION","Hyacinthus","Gerbera", "MARIGOLD","geranium","ligularia", "Pachysandra", "SNAPDRAGON", "GLADIOLUS"),3,3)
-test(mymat)
-
+> mymat <- matrix(c("DANDELION","Hyacinthus","Gerbera", "MARIGOLD","geranium","ligularia", "Pachysandra", "SNAPDRAGON", "GLADIOLUS"),3,3)
+> test(mymat)
+     [,1]         [,2]        [,3]         
+[1,] "DANDELION"  "MARIGOLD"  "Pachysandra"
+[2,] "Hyacinthus" "HERE"      "SNAPDRAGON" 
+[3,] "Gerbera"    "ligularia" "HERE"       
+```
