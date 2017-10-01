@@ -74,3 +74,43 @@ iv. Using the same lowdose, meddose, and highdose thresholds as (iii), as well a
 
 ***c)***
 Assume the object mynum will only ever be a single integer between 0 and 9. Use ifelse and switch to produce a command that takes in mynum and returns a matching character string for all possible values 0, 1, ..., 9. Supplied with 3, for example, it should return "three"; supplied with 0, it should return "zero".
+
+
+***SOLUTIONS***
+***a***
+```R
+> mynum <- 3
+> if(mynum == 1) { 
+     foo <- 12 
+  } else if(mynum == 2) {
+     foo <- 34 
+ } else if(mynum == 3) {
+     foo <- 56 
+ } else if(mynum == 4) {
+     foo <- 78
+ } else if(mynum == 5) { 
+     foo <- NA
+ } else {
+     foo <- NULL
+ }
+ > foo
+ 3
+ ```
+ ```R
+> mynum <- 0
+> if(mynum == 1) { 
+     foo <- 12 
+  } else if(mynum == 2) {
+     foo <- 34 
+ } else if(mynum == 3) {
+     foo <- 56 
+ } else if(mynum == 4) {
+     foo <- 78
+ } else if(mynum == 5) { 
+     foo <- NA
+ } else {
+     foo <- NULL
+ }
+ > foo
+ NULL
+ ```
