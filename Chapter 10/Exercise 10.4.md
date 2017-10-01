@@ -129,3 +129,51 @@ Test your code—ensure the previous result for mystring <- "R fever". Furthermo
 list()
 None
 ```
+
+***b***
+
+```R
+> mynum <- 5
+> product <- 1
+> if(mynum == 0) {
+    product = 1
+} else if(mynum >0){
+    product = 1
+    while(mynum >1) {
+        product <- product * mynum
+        mynum <- mynum - 1
+    }
+}
+> product
+[1] 120
+```
+```R
+> mynum <- 12
+> product <- 1
+> if(mynum == 0) {
+    product = 1
+} else if(mynum >0){
+    product = 1
+    while(mynum >1) {
+        product <- product * mynum
+        mynum <- mynum - 1
+    }
+}
+> product
+[1] 479001600
+```
+```R
+> mynum <- 1
+> product <- 1
+> if(mynum == 0) {
+    product = 1
+} else if(mynum >0){
+    product = 1
+    while(mynum >1) {
+        product <- product * mynum
+        mynum <- mynum - 1
+    }
+}
+> product
+[1] 1
+```
