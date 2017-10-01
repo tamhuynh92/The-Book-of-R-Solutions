@@ -116,3 +116,42 @@ then only the "not possible" members of reslist should be [[3]], [[6]], and [[9]
 [1,]    1    0
 [2,]    0    1
 ```
+```R
+> mylist <- list()
+> counter <- 1
+> mynumber 
+ [1] 4 5 1 2 6 2 4 6 6 2
+> repeat{
++     if(mynumber[counter] > 5)
++     {
++         break
++     }
++     mylist[[counter]] <- diag(mynumber[counter])
++     counter <- counter + 1
++ }
+> mylist
+[[1]]
+     [,1] [,2] [,3] [,4]
+[1,]    1    0    0    0
+[2,]    0    1    0    0
+[3,]    0    0    1    0
+[4,]    0    0    0    1
+
+[[2]]
+     [,1] [,2] [,3] [,4] [,5]
+[1,]    1    0    0    0    0
+[2,]    0    1    0    0    0
+[3,]    0    0    1    0    0
+[4,]    0    0    0    1    0
+[5,]    0    0    0    0    1
+
+[[3]]
+     [,1]
+[1,]    1
+
+[[4]]
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+```
+
