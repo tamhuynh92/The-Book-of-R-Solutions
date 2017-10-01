@@ -61,3 +61,53 @@ myfib4 <- function(thresh,printme)
 [19]    4181    6765   10946   17711   28657   46368   75025  121393  196418
 [28]  317811  514229  832040 1346269
 ```
+***b***
+```R
+> factorial <- function(number){
+    product <- 1
+    if(number == 0 ){ 
+        product = 1
+    } else if (number >0){
+        while(number >1) {
+            product <- product * number
+            number <- number - 1
+        }
+    }
+    return(product)
+}
+
+> factorial(5)
+[1] 120
+> factorial(0)
+[1] 1
+> factorial(129)
+[1] 4.974504e+217
+> factorial(120)
+[1] 6.689503e+198
+> factorial(12)
+[1] 479001600
+```
+```R
+myfac2 <- function(number){
+    product <- 1
+    if(number == 0 ){ 
+        product = 1
+    } else if (number >0){
+        while(number >1) {
+            product <- product * number
+            number <- number - 1
+        }
+    } else {
+        product <- NaN
+    }
+    return(product)
+}
+> myfac2(0)
+[1] 1
+> myfac2(5)
+[1] 120
+> myfac2(12)
+[1] 479001600
+> myfac2(-6)
+[1] NaN
+```
