@@ -94,7 +94,7 @@ Assume the object mynum will only ever be a single integer between 0 and 9. Use 
      foo <- NULL
  }
  > foo
- 3
+ 56
  ```
  ```R
 > mynum <- 0
@@ -114,3 +114,66 @@ Assume the object mynum will only ever be a single integer between 0 and 9. Use 
  > foo
  NULL
  ```
+***b***
+```R
+if(any(doselevel == "High"))	
+{
+    if(lowdose >=10) 	
+    {
+        lowdose <- 10
+    } else {
+        lowdose <- lowdose/2
+    }
+    
+    if(meddose >= 26)
+    {
+        meddose <- 26
+    } 
+    
+    if (highdose < 60)
+    {
+        highdose <- 60
+    } else {
+        highdose <- highdose * 1.5
+    }
+    
+    dosage <- rep(lowdose, times = length(doselevel))
+    
+    dosage[which(doselevel== "Med")] <-  meddose
+    dosage[which(doselevel== "High")] <-  highdose
+} else {
+    doselevel <- factor(doselevel[1:length(doselevel)], levels = c("Low", "Med"))
+    levels(doselevel) <- c("Smal", "Large")
+    if(lowdose < 15 & meddose <35) {
+        lowdose = lowdose * 2 
+        meddose = meddose + highdose
+    }
+    dosage <- rep(lowdose, times = length(doselevel))
+    dosage[which(doselevel== "Large")] <-  meddose
+}
+```
+
+***c***
+```R
+if(mynum == 0) { 
+    cat("zero") 
+} else if(mynum == 1) {
+    cat("one") 
+} else if(mynum == 2) {
+    cat("two") 
+} else if(mynum == 3) {
+    cat("three")
+} else if(mynum == 4) {
+    cat("four")
+} else if(mynum == 5) {
+    cat("five")
+} else if(mynum == 6) {
+    cat("six")
+} else if(mynum == 7) {
+    cat("seven") 
+} else if(mynum == 8) {
+    cat("eight")
+} else if(mynum == 9) {
+    cat("nine")
+}
+```
