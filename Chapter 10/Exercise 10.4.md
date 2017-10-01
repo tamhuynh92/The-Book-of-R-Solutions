@@ -177,3 +177,20 @@ None
 > product
 [1] 1
 ```
+***c***
+```R
+while(ecount <2 && index <= nchar(mystring))
+{
+    if((substr(mystring, index, index) == 'e') || (substr(mystring, index, index) == 'E'))
+    {
+        ecount <- ecount + 1
+    }
+    
+    if(ecount == 2)
+    {
+        result <- substr(mystring,1,index-1)
+    }
+    index <- index + 1
+    
+}
+```
