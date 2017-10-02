@@ -25,6 +25,7 @@ i. Work out the final amount after a 10-year investment of a principal of $5000,
 
 ii. Re-create the following step-plot, which shows the result of $100 invested at 22.9 percent per annum, compounded monthly, for 20 years:
 
+![Image1](https://github.com/tamhuynh92/The-Book-of-R-Solutions/blob/master/Chapter%2011/Screen%20Shot%202017-10-01%20at%209.55.02%20PM.png?raw=true)
 
 iii. Perform another calculation based on the same parameters as in (ii), but this time, assume the interest is compounded
 annually. Return and store the results as a numeric vector. Then, use lines to add a second step-line, corresponding to this annually accrued amount, to the plot created previously. Use a different color or line type and make use of the legend function so the two lines can be differentiated.
@@ -54,3 +55,39 @@ ii. Attempt to find solutions to the following quadratic equations:
 * −5x^2 + 10.11x − 9.9
 
 iii. Test your programmed response in the function if one of the arguments is missing.
+
+#### SOLUTION
+
+##### a
+
+```R
+final.amount <- function(P, i, t=12, y, plotit = TRUE, type = "s",...) 
+{
+    amountseq <- c(P)
+    counter <- 1
+    repeat{
+        amountseq <- c(amountseq, P * (1 + i/(100*t))^(t*counter))
+        counter <- counter + 1
+        if(counter > y) {
+            break
+        }
+    }
+    
+    if(plotit == FALSE) 
+    {
+        return(amountseq)
+    } else {
+        plot(1:length(amountseq), amountseq, type = "s", ...)
+    }
+}
+```
+###### i
+```R
+> final.amount(P = 5000, i = 4.4, y = 10, plotit=FALSE)
+ [1] 5000.000 5224.491 5459.062 5704.164 5960.271 6227.877 6507.498 6799.674
+ [9] 7104.967 7423.968 7757.291
+```
+###### ii
+```R
+> final.amount(P = 100, i = 22.9, y = 20, plotit=TRUE, main = "Compound Interest Calculator", xlab = "Year(y)", ylab = "Balance(F)")
+```
