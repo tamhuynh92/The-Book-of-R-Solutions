@@ -13,6 +13,7 @@ iii. 0 factorial is 1.
 
 c. For this problem, I’ll introduce the geometric mean. The geometric mean is a particular measure of centrality, different from the more common arithmetic mean. Given n observations denoted x1, x2, . . ., xn, their geometric mean g ¯ is computed as follows:
 
+![Image](https://github.com/tamhuynh92/The-Book-of-R-Solutions/blob/master/Chapter%2011/Screenshot%202017-10-02%2000.11.32.png?raw=true)
 
 For example, to find the geometric mean of the data 4.3, 2.1, 2.2, 3.1, calculate the following:
 
