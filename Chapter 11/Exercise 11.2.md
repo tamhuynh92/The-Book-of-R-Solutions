@@ -117,7 +117,22 @@ final.amount <- function(P, i, t=12, y, plotit = TRUE, type = "s",...)
 
 ##### b
 ```R
-quadratic.function <- function(k1=0, k2=0, k3=0) {
+quadratic.function <- function(k1, k2, k3) {
+    if(missing(k1)) {
+        cat("k1 was missing.\n")
+    }
+    
+    if(missing(k2)) {
+        cat("k2 was missing.\n")
+    }
+    
+    if(missing(k3)) {
+        cat("k3 was missing.\n")
+    }
+    
+    if(missing(k1) || missing(k2) || missing(k3)) {
+        return("Can't compute")
+    }
     delta <- k2*k2 - 4*k1*k3
     r1 <- NA
     r2 <- NA
@@ -132,7 +147,7 @@ quadratic.function <- function(k1=0, k2=0, k3=0) {
         cat("This equation has two roots are ", r1, " and ", r2)
     }
 }
-
+```
 ***i***
 ```R
 > quadratic.function(2,-1,-5)
@@ -151,3 +166,41 @@ This equation has two roots are  -1.278312  and  2.84974
 > quadratic.function(-5,10.11,-9.9)
 This equation has no solution
 ```
+
+***iii***
+```R
+> quadratic.function(2,-1,-5)
+This equation has two roots are  -1.350781  and  1.850781
+
+> quadratic.function(2,-1,)
+k3 was missing.
+[1] "Can't compute"
+
+> quadratic.function(2,,-5)
+k2 was missing.
+[1] "Can't compute"
+
+> quadratic.function(,-1,-5)
+k1 was missing.
+[1] "Can't compute"
+
+> quadratic.function(,,-5)
+k1 was missing.
+k2 was missing.
+[1] "Can't compute"
+
+> quadratic.function(2,,)
+k2 was missing.
+k3 was missing.
+[1] "Can't compute"
+
+> quadratic.function(,,)
+k1 was missing.
+k2 was missing.
+k3 was missing.
+[1] "Can't compute"
+> quadratic.function()
+k1 was missing.
+k2 was missing.
+k3 was missing.
+[1] "Can't compute"
