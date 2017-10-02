@@ -91,3 +91,4 @@ final.amount <- function(P, i, t=12, y, plotit = TRUE, type = "s",...)
 ```R
 > final.amount(P = 100, i = 22.9, y = 20, plotit=TRUE, main = "Compound Interest Calculator", xlab = "Year(y)", ylab = "Balance(F)")
 ```
+![Image2](https://github.com/tamhuynh92/The-Book-of-R-Solutions/blob/master/Chapter%2011/Compound%20Interest%20Calculator.png?raw=true)
