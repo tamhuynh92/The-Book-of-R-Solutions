@@ -32,7 +32,7 @@ annually. Return and store the results as a numeric vector. Then, use lines to a
 
 ***b***
 
-b. A quadratic equation in the variable x is often expressed in the following form:
+A quadratic equation in the variable x is often expressed in the following form:
 ![Image1](http://latex.codecogs.com/gif.latex?k_%7B1%7Dx%5E2%20&plus;%20k_%7B2%7Dx%20&plus;%20k_%7B3%7D%20%3D%200)
 Here, k1, k2, and k3 are constants. Given values for these constants, you can attempt to find up to two real roots—values of x that satisfy the equation. Write a function that takes k1, k2, and k3 as arguments and finds and returns any solutions (as a numeric vector) in such a situation. This is achieved as follows:
 
@@ -92,7 +92,7 @@ final.amount <- function(P, i, t=12, y, plotit = TRUE, type = "s",...)
 > final.amount(P = 100, i = 22.9, y = 20, plotit=TRUE, main = "Compound Interest Calculator", xlab = "Year(y)", ylab = "Balance(F)")
 ```
 ![Image2](https://github.com/tamhuynh92/The-Book-of-R-Solutions/blob/master/Chapter%2011/Compound%20Interest%20Calculator.png?raw=true)
-```
+```R
 # Compounded Monthly
 > monthly <- final.amount(P = 100, i = 22.9, y = 20, t=12, plotit=FALSE)
 > monthly
@@ -112,3 +112,5 @@ final.amount <- function(P, i, t=12, y, plotit = TRUE, type = "s",...)
 > par(new=T)
 > plot(1:length(yearly), yearly, type = "s", main = "Compound Interest Calculator", xlab = "Year(y)", ylab = "Balance(F)", col = "blue", xlim = c(0,21), ylim = c(0,10000))
 > legend("top", legend= c("Monthly", "Yearly"), col = c("red","blue"), pch = c(NA,NA), lwd = c(1,1))
+```
+![Image3](https://github.com/tamhuynh92/The-Book-of-R-Solutions/blob/master/Chapter%2011/Monthly%20vs.%20Yearly.png?raw=true)
