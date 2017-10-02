@@ -36,9 +36,9 @@ A quadratic equation in the variable x is often expressed in the following form:
 ![Image1](http://latex.codecogs.com/gif.latex?k_%7B1%7Dx%5E2%20&plus;%20k_%7B2%7Dx%20&plus;%20k_%7B3%7D%20%3D%200)
 Here, k1, k2, and k3 are constants. Given values for these constants, you can attempt to find up to two real roots—values of x that satisfy the equation. Write a function that takes k1, k2, and k3 as arguments and finds and returns any solutions (as a numeric vector) in such a situation. This is achieved as follows:
 
-– Evaluate ![Image2](http://latex.codecogs.com/gif.latex?k_%7B2%7D%5E2%20-%204k_%7B1%7Dk_%7B3%7D). If this is negative, there are no solutions, and an appropriate message should be printed to the console.
+– Evaluate ![Image2](http://latex.codecogs.com/gif.latex?k_%7B2%7D%5E2%20-%204k_%7B1%7Dk_%7B3%7D) . If this is negative, there are no solutions, and an appropriate message should be printed to the console.
 
-– If ![Image2](http://latex.codecogs.com/gif.latex?k_%7B2%7D%5E2%20-%204k_%7B1%7Dk_%7B3%7D)is zero, then there is one solution, computed by −k2/2k1.
+– If ![Image2](http://latex.codecogs.com/gif.latex?k_%7B2%7D%5E2%20-%204k_%7B1%7Dk_%7B3%7D) is zero, then there is one solution, computed by −k2/2k1.
 
 – If ![Image2](http://latex.codecogs.com/gif.latex?k_%7B2%7D%5E2%20-%204k_%7B1%7Dk_%7B3%7D) is positive, then there are two solutions, given by ![Image3](http://latex.codecogs.com/gif.latex?%28-k_%7B2%7D-%28k_%7B2%7D%5E2%20-%204k_%7B1%7Dk_%7B3%7D%29%5E%7B0.5%7D%29/%7B2k_%7B1%7D%20%7D) and ![Image4](http://latex.codecogs.com/gif.latex?%28-k_%7B2%7D&plus;%28k_%7B2%7D%5E2%20-%204k_%7B1%7Dk_%7B3%7D%29%5E%7B0.5%7D%29/%7B2k_%7B1%7D%20%7D)
 
@@ -114,3 +114,40 @@ final.amount <- function(P, i, t=12, y, plotit = TRUE, type = "s",...)
 > legend("top", legend= c("Monthly", "Yearly"), col = c("red","blue"), pch = c(NA,NA), lwd = c(1,1))
 ```
 ![Image3](https://github.com/tamhuynh92/The-Book-of-R-Solutions/blob/master/Chapter%2011/Monthly%20vs.%20Yearly.png?raw=true)
+
+##### b
+```R
+quadratic.function <- function(k1=0, k2=0, k3=0) {
+    delta <- k2*k2 - 4*k1*k3
+    r1 <- NA
+    r2 <- NA
+    if(delta < 0 ) {
+        cat("This equation has no solution")
+    } else if(delta == 0) {
+        r1 <- -k2/(2*k1)
+        cat("This equation has one root is ", r1)
+    } else {
+        r1 <- (-k2 - delta^(0.5))/(2*k1)
+        r2 <- (-k2 + delta^(0.5))/(2*k1)
+        cat("This equation has two roots are ", r1, " and ", r2)
+    }
+}
+
+***i***
+```R
+> quadratic.function(2,-1,-5)
+This equation has two roots are  -1.350781  and  1.850781
+> quadratic.function(1,1,1)
+This equation has no solution
+```
+***ii***
+```R
+> quadratic.function(1.3,-8,-3.13)
+This equation has two roots are  -0.3691106  and  6.522957
+> quadratic.function(2.25,-3,1)
+This equation has one root is  0.6666667
+> quadratic.function(1.4,-2.2,-5.1)
+This equation has two roots are  -1.278312  and  2.84974
+> quadratic.function(-5,10.11,-9.9)
+This equation has no solution
+```
