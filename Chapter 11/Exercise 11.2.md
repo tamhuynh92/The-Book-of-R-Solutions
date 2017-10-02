@@ -92,3 +92,23 @@ final.amount <- function(P, i, t=12, y, plotit = TRUE, type = "s",...)
 > final.amount(P = 100, i = 22.9, y = 20, plotit=TRUE, main = "Compound Interest Calculator", xlab = "Year(y)", ylab = "Balance(F)")
 ```
 ![Image2](https://github.com/tamhuynh92/The-Book-of-R-Solutions/blob/master/Chapter%2011/Compound%20Interest%20Calculator.png?raw=true)
+```
+# Compounded Monthly
+> monthly <- final.amount(P = 100, i = 22.9, y = 20, t=12, plotit=FALSE)
+> monthly
+ [1]  100.0000  125.4632  157.4102  197.4918  247.7796  310.8722  390.0303
+ [8]  489.3445  613.9473  770.2780  966.4155 1212.4959 1521.2362 1908.5917
+[15] 2394.5804 3004.3174 3769.3130 4729.1010 5933.2818 7444.0856 9339.5886
+
+#Compunded Yearly
+> yearly <- final.amount(P = 100, i = 22.9, y = 20, t=1, plotit=FALSE)
+> yearly
+ [1]  100.0000  122.9000  151.0441  185.6332  228.1432  280.3880  344.5968
+ [8]  423.5095  520.4932  639.6861  786.1743  966.2082 1187.4699 1459.4005
+[15] 1793.6032 2204.3383 2709.1318 3329.5229 4091.9837 5029.0479 6180.6999
+
+#Montly: red, #Yearly: blue
+> plot(1:length(monthly), monthly, type = "s", main = "Compound Interest Calculator", xlab = "Year(y)", ylab = "Balance(F)", col = "red", xlim = c(0,21), ylim = c(0,10000))
+> par(new=T)
+> plot(1:length(yearly), yearly, type = "s", main = "Compound Interest Calculator", xlab = "Year(y)", ylab = "Balance(F)", col = "blue", xlim = c(0,21), ylim = c(0,10000))
+> legend("top", legend= c("Monthly", "Yearly"), col = c("red","blue"), pch = c(NA,NA), lwd = c(1,1))
