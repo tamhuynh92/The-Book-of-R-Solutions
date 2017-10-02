@@ -7,6 +7,7 @@ an interest rate per annum i (expressed as a percentage), and a frequency of int
 
 Write a function that can compute F as per the following
 notes:
+
 – Arguments must be present for P, i, t, and y. The argument for t should have a default value of 12.
 
 – Another argument giving a logical value that determines whether to plot the amount F at each integer time should be 
@@ -19,6 +20,7 @@ included. For example, if plotit=TRUE (the default) and y is 5 years, the plot s
 – An ellipsis should also be included to control other details of plotting, if it takes place.
 
 Now, using your function, do the following:
+
 i. Work out the final amount after a 10-year investment of a principal of $5000, at an interest rate of 4.4 percent per annum compounded monthly.
 
 ii. Re-create the following step-plot, which shows the result of $100 invested at 22.9 percent per annum, compounded monthly, for 20 years:
