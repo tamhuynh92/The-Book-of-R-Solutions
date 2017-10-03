@@ -98,3 +98,75 @@ myfactorial <- function(n) {
 > myfactorial(12)
 [1] 479001600
 ```
+***c***
+```R
+geolist <- function(foo) 
+{
+    geovector <- function(vect) {
+        product <- 1
+        for(i in vect) {
+            product <- product * i
+        }
+        geometric.result <- product^(1/length(vect))
+        return(geometric.result)
+    }
+    
+    geomatrix <- function(mtrx) {
+        product.result <- rep(1, nrow(mtrx))
+        for(i in 1:nrow(mtrx)) {
+            for(j in 1:ncol(mtrx)) {
+                product.result[i] <- product.result[i] * mtrx[i,j]
+            }
+        }
+        geometric.result <- product.result^(1/ncol(mtrx))
+        return(geometric.result)
+    }
+    
+    
+    if(is.list(foo)) {
+        geometric.list <- list()
+        counter <- 1
+        for( lst in foo )
+        {
+            if(is.vector(lst)) {
+                geometric.list[[counter]] <-  geovector(lst)
+                counter <- counter + 1
+            } else if(is.matrix(lst)) {
+               geo.mtrx <- geomatrix(lst)
+               geometric.list[[counter]] <-  geo.mtrx
+               counter <- counter + 1
+            }
+        }
+    }
+    return(geometric.list)
+    
+}
+```
+```R
+> foo <- list(1:3,matrix(c(3.3,3.2,2.8,2.1,4.6,4.5,3.1,9.4),4,2),
++             matrix(c(3.3,3.2,2.8,2.1,4.6,4.5,3.1,9.4),2,4))
+> geolist(foo)
+[[1]]
+[1] 1.817121
+
+[[2]]
+[1] 3.896152 3.794733 2.946184 4.442972
+
+[[3]]
+[1] 3.388035 4.106080
+
+> bar <- list(1:9,matrix(1:9,1,9),matrix(1:9,9,1),matrix(1:9,3,3))
+> geolist(bar)
+[[1]]
+[1] 4.147166
+
+[[2]]
+[1] 4.147166
+
+[[3]]
+[1] 1 2 3 4 5 6 7 8 9
+
+[[4]]
+[1] 3.036589 4.308869 5.451362
+```
+
