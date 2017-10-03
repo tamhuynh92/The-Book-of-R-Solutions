@@ -80,3 +80,21 @@ R> geolist(bar)
 [[4]]
 [1] "g !" "h !" "i !"
 ```
+***b***
+```R
+myfactorial <- function(n) {
+    if(n==0) {
+        return(1)
+    } else if(n>0) {
+        return(myfactorial(n-1) * n)
+    }
+}
+> myfactorial(0)
+[1] 1
+> myfactorial(5)
+[1] 120
+> myfactorial(120)
+[1] 6.689503e+198
+> myfactorial(12)
+[1] 479001600
+```
