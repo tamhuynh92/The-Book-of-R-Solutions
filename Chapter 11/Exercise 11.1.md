@@ -63,7 +63,7 @@ myfib4 <- function(thresh,printme)
 ```
 ***b***
 ```R
-> factorial <- function(number){
+> myfactorial <- function(number){
     product <- 1
     if(number == 0 ){ 
         product = 1
@@ -76,15 +76,15 @@ myfib4 <- function(thresh,printme)
     return(product)
 }
 
-> factorial(5)
+> myfactorial(5)
 [1] 120
-> factorial(0)
+> myfactorial(0)
 [1] 1
-> factorial(129)
+> myfactorial(129)
 [1] 4.974504e+217
-> factorial(120)
+> myfactorial(120)
 [1] 6.689503e+198
-> factorial(12)
+> myfactorial(12)
 [1] 479001600
 ```
 ```R
