@@ -13,3 +13,38 @@ f. Use tapply to report the total insect counts by each spray type.
 g. Using the same kind of for loop as in (c), compute the percentage of agricultural units in each spray type group that had   at least five bugs on them. When printing to the screen, round the percentages to the nearest whole number.
 
 h. Obtain the same numeric results as in (g), with rounding, but use tapply and a disposable function
+
+*** SOLUTION ***
+***a***
+> length(quakes$depth[quakes$depth>=300])/nrow(quakes)
+[1] 0.453
+***b***
+> mean(quakes$mag[quakes$depth>=300])
+[1] 4.527373
+> median(quakes$mag[quakes$depth>=300])
+[1] 4.5
+***c***
+```R
+> feed = levels(chickwts$feed)
+> total.weight.each = matrix(0, 3, length(levels(chickwts$feed)), dimnames = list(c("Name","Count", "Mean"), levels(chickwts$feed)))
+
+> for(i in 1:nrow(chickwts)) 
+{
+  for(j in 1:length(feed)) 
+  {
+      if((chickwts$feed[i] == feed[j]))
+      {
+          total.weight.each["Name",j] <- total.weight.each["Name",j] + chickwts$weight[i]
+          total.weight.each["Count",j] <- total.weight.each["Count",j] + 1
+      }
+  }
+}
+> total.weight.each["Mean",] = round(total.weight.each["Name",]/total.weight.each["Count",], digit = 1)
+> total.weight.each
+```
+```R
+      casein horsebean linseed meatmeal soybean sunflower
+Name  3883.0    1602.0  2625.0   3046.0  3450.0    3947.0
+Count   12.0      10.0    12.0     11.0    14.0      12.0
+Mean   323.6     160.2   218.8    276.9   246.4     328.9
+```
