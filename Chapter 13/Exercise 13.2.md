@@ -14,7 +14,8 @@ g. Using the same kind of for loop as in (c), compute the percentage of agricult
 
 h. Obtain the same numeric results as in (g), with rounding, but use tapply and a disposable function
 
-*** SOLUTION ***
+#### SOLUTION 
+
 ***a***
 > length(quakes$depth[quakes$depth>=300])/nrow(quakes)
 [1] 0.453
@@ -47,4 +48,54 @@ h. Obtain the same numeric results as in (g), with rounding, but use tapply and 
 Name  3883.0    1602.0  2625.0   3046.0  3450.0    3947.0
 Count   12.0      10.0    12.0     11.0    14.0      12.0
 Mean   323.6     160.2   218.8    276.9   246.4     328.9
+```
+***d***
+Two variable types: discrete numeric variable for count, nomial categorical variable for spray
+
+***e***
+```R
+> table(InsectSprays$count)
+
+ 0  1  2  3  4  5  6  7  9 10 11 12 13 14 15 16 17 19 20 21 22 23 24 26 
+ 2  6  4  8  4  7  3  3  1  3  3  2  4  4  2  2  4  1  2  2  1  1  1  2 
+ > max(table(InsectSprays$count))
+[1] 8
+```
+
+***f***
+```R
+> tapply(InsectSprays$count, INDEX = InsectSprays$spray, FUN = sum)
+  A   B   C   D   E   F 
+174 184  25  59  42 200 
+```
+***g***
+```R
+> sprays.type = levels(InsectSprays$spray)
+> mytable = matrix(0, 3, length(levels(InsectSprays$spray)), dimnames = list(c("Count","Total", "Percentage"), levels(InsectSprays$spray)))
+> for(i in 1:nrow(InsectSprays)) 
+ {
+     for(j in 1:length(sprays.type)) 
+     {
+         if((InsectSprays$spray[i] == sprays.type[j]))
+         {
+             mytable["Total",j] <- mytable["Total",j] + 1
+             if(InsectSprays$count[i] >=5)
+             {
+                 mytable["Count",j] <- mytable["Count",j] + 1
+             }
+         }
+     }
+ }
+> mytable["Percentage",] = round(mytable["Count",]/mytable["Total",]*100, digit=0) 
+> mytable
+             A   B  C  D  E   F
+Count       12  12  1  7  4  12
+Total       12  12 12 12 12  12
+Percentage 100 100  8 58 33 100
+```
+***h***
+```R
+> tapply(InsectSprays$count, INDEX = InsectSprays$spray, FUN =function(x) round(length(which(x>=5))/length(x)*100, digit=0))
+  A   B   C   D   E   F 
+100 100   8  58  33 100 
 ```
