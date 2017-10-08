@@ -17,8 +17,10 @@ h. Obtain the same numeric results as in (g), with rounding, but use tapply and 
 #### SOLUTION 
 
 ***a***
+```R
 > length(quakes$depth[quakes$depth>=300])/nrow(quakes)
 [1] 0.453
+```
 ***b***
 > mean(quakes$mag[quakes$depth>=300])
 [1] 4.527373
